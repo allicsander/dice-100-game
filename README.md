@@ -15,5 +15,4 @@
 
 - Add intl
 - Add pop-up for game rules
-- Add some center offset for the dice element (up to 50%)
 - Maybe some refactoring, sass and jquery
