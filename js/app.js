@@ -50,8 +50,12 @@ var scores,
         if (gameState) {
             //Roll a dice
         var dice = Math.floor(Math.random() * 6) + 1;
+        var diceLeftOffset = Math.floor(Math.random() * 20) + 40;
+        var diceTopOffset = Math.floor(Math.random() * 25) + 20;
         document.querySelector(".dice").src = "img/dice-" + dice + ".png";
         document.querySelector(".dice").style.display = "block";
+        document.querySelector(".dice").style.left = diceLeftOffset + "%";
+        document.querySelector(".dice").style.top = diceTopOffset + "%";
             if(previousRoll === 6 && dice === 6){
                 scores[activePlayer] = 0;
                 document.getElementById("score-" + activePlayer).textContent = scores[activePlayer] ;
