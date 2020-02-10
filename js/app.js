@@ -84,6 +84,7 @@ var scores,
 
     document.querySelector(".btn-hold").addEventListener("click", function() {
         if (gameState) {
+          
         //Transfer current score to global score
         scores[activePlayer] += currentScore;
         document.getElementById("score-" + activePlayer).textContent = scores[activePlayer];
