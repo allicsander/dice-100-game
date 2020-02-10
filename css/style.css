@@ -57,7 +57,19 @@ body {
     text-transform: uppercase;
 }
 
-
+.rules{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 585px;
+    color: #555555;
+    font-size: 9px;
+    font-family: "Lato";
+    text-align: center;
+    width: 160px;
+    text-transform: uppercase; 
+    cursor: pointer;
+}
 
 .player-name {
     font-size: 40px;
