@@ -3,8 +3,8 @@ var scores,
     currentScore, 
     activePlayer, 
     gameState, 
-    previousRoll;
-
+    previousRoll,
+    isRollable;
 
     init();
 
@@ -16,6 +16,7 @@ var scores,
         activePlayer = 0;
         previousRoll = 0;
         gameState = true;
+        isRollable = true;
         document.getElementById("name-" + 0).textContent = "Player 1";
         document.getElementById("name-" + 1).textContent = "Player 2";
         document.querySelector(".player-0-panel").classList.remove("winner");
@@ -47,7 +48,7 @@ var scores,
     }
     
     document.querySelector(".btn-roll").addEventListener("click", function() {
-        if (gameState) {
+        if (gameState && isRollable) {
             //Roll a dice
         var dice = Math.floor(Math.random() * 6) + 1;
         var diceLeftOffset = Math.floor(Math.random() * 20) + 40;
@@ -67,13 +68,20 @@ var scores,
                     previousRoll = dice;
                     document.getElementById("current-" + activePlayer).textContent = currentScore;
                 } else {
-                  //If 1 is rolled, reset current score and activate another player
-                  setTimeout(changePlayer, 1500);
+                  //If 1 is rolled, pause for 1.5 sec. and then reset current score and activate another player
+                  isRollable = false;      
+                  setTimeout(activateRoll, 1500);
                 }   
              }
         }
     })
     
+    function activateRoll(){
+      isRollable = true;
+      changePlayer();
+    }
+
+
     document.querySelector(".btn-hold").addEventListener("click", function() {
         if (gameState) {
         //Transfer current score to global score
