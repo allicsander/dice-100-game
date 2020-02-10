@@ -62,14 +62,14 @@ var scores,
                 changePlayer();
             } else {
                 //Add to current score
-            if(dice !== 1) {
-              currentScore += dice;
-              previousRoll = dice;
-              document.getElementById("current-" + activePlayer).textContent = currentScore;
-           } else {
-             //If 1 is rolled, reset current score and activate another player
-             changePlayer();
-           }   
+                  if(dice !== 1) {
+                    currentScore += dice;
+                    previousRoll = dice;
+                    document.getElementById("current-" + activePlayer).textContent = currentScore;
+                } else {
+                  //If 1 is rolled, reset current score and activate another player
+                  setTimeout(changePlayer, 1500);
+                }   
              }
         }
     })
