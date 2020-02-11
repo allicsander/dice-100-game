@@ -70,17 +70,15 @@ var scores,
                 } else {
                   //If 1 is rolled, pause for 1.5 sec. and then reset current score and activate another player
                   isRollable = false;      
-                  setTimeout(activateRoll, 1500);
+                  setTimeout(function(){ 
+                      isRollable = true;  
+                      changePlayer(); }, 1500);
                 }   
              }
         }
     })
     
-    function activateRoll(){
-      isRollable = true;
-      changePlayer();
-    }
-
+ 
 
     document.querySelector(".btn-hold").addEventListener("click", function() {
         if (gameState) {
